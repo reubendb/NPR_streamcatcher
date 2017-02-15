@@ -1,0 +1,56 @@
+#!/bin/bash
+
+function do_tag 
+  {
+  
+  file=$1
+  
+  #-- Check whether file is already tagged
+  id3info $file  | grep -q TIT2
+    
+  if [[ $? -ne 0 ]]; then
+      
+    #-- Build Artis - File Mapping
+    fileroot=$(echo $file | awk -F_ '{print $1}')
+    case $fileroot in 
+    'TestRecord'          ) artist="Test Recording Artist"        ;;
+    '1A'                  ) artist="1A"                           ;;
+    'AllThingsConsidered' ) artist="NPR All Things Considered"    ;;
+    'Being'               ) artist="On Being with Krista Tippett" ;;
+    'CarTalk'             ) artist="Car Talk"                     ;;
+    'DianeRehm'           ) artist="The Diane Rehm Show"          ;;
+    'MorningEdition'      ) artist="NPR Morning Edition"          ;;
+    'MountainJubilee'     ) artist="WUOT Mountain Jubilee"        ;;
+    'PrairieHomeCompanion') artist="A Prairie Home Companion"     ;;
+    'RadioLab'            ) artist="WNYC RadioLab"                ;;
+    'ThisAmericanLife'    ) artist="This American Life"           ;;
+    'ThistleShamrock'     ) artist="Thistle and Shamrock"         ;;
+    'WaitWait'            ) artist="Wait, Wait Don't Tell Me"     ;;
+    'WeekendEdition'      ) artist="NPR Weekend Edition"          ;;
+    *                     ) echo "No Artist Info for $file"; return ;;
+    esac
+
+    #-- actual tagging 
+    album=$(echo $file | awk -F_ '{print $2}' | awk -F- '{print $1"-"$2}')
+    song=$(basename $file .mp3)
+    year=$(echo $file | awk -F_ '{print $2}' | awk -F- '{print $1}')
+    track=$(basename $file .mp3 | awk -F_ '{print $2}' | awk -F- '{print $3}')
+    total=31
+    genre='Podcast'
+    id3tag -a"$artist" -A$album -s$song -y$year -t$track -T$total -g$genre $file
+    
+  else 
+      echo "$file alrady has id3tag"
+  fi 
+  
+  }
+
+#-- main program
+if [ $# -eq 1 ]; then
+  do_tag $1
+else 
+  for file in *.mp3; do
+    do_tag $file
+  done
+fi
+  

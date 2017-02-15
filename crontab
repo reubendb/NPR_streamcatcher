@@ -1,0 +1,41 @@
+# Record Morning Edition Mon - Fri from 5am - 7am
+0 5 * * 1-5     /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTFM.mp3 MorningEdition 120 /home/username/podcast/MorningEdition/ "NPR Morning Edition" &
+
+# Record Weekend Edition Sat - Sun from 8am - 10am
+0 8 * * 6-7     /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTFM.mp3 WeekendEdition 120 /home/username/podcast/WeekendEdition/ "NPR Weekend Edition" &
+
+# Record All Things Considered Weekday 4pm - 6pm
+0 16 * * 1-5    /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTFM.mp3 AllThingsConsidered 120 /home/username/podcast/AllThingsConsidered "NPR All Things Considered" &
+
+# Record All Things Considered Weekend 5pm - 6pm
+0 17 * * 6-7    /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTFM.mp3 AllThingsConsidered 60 /home/username/podcast/AllThingsConsidered "NPR All Things Considered" &
+
+# Record Car Talk Saturday 10am - 11am
+0 10 * * 6      /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTFM.mp3 CarTalk 60 /home/username/podcast/CarTalk "Car Talk" &
+
+# Record Wait Wait Dont Tell Me Saturday 11am - 12am
+0 11 * * 6      /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTFM.mp3 WaitWait 60 /home/username/podcast/WaitWaitDontTellMe "Wait, Wait Don't Tell Me" &
+
+# Record This American Life Saturday 12am - 1pm
+0 12 * * 6      /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTFM.mp3 ThisAmericanLife 60 /home/username/podcast/ThisAmericanLife "This American Life" &
+
+# Record Prairie Home Companion Saturday 6pm - 8pm
+0 18 * * 6      /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTFM.mp3 PrairieHomeCompanion 120 /home/username/podcast/PrairieHomeCompanion "A Prairie Home Companion" &
+
+# Record Thistle and Shamrock Saturday 8pm - 9pm
+0 20 * * 6      /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTFM.mp3 ThistleShamrock 60 /home/username/podcast/ThistleShamrock "Thistle and Shamrock" &
+
+# Record Mountain Jubilee Saturday 9pm - 10pm
+0 21 * * 6      /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTFM.mp3 MountainJubilee 60 /home/username/podcast/MountainJubilee "WUOT Mountain Jubilee" &
+
+# Record RadioLab Saturday 2pm - 3pm WUOT2
+0 14 * * 6      /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTHD2.mp3 RadioLab 60 /home/username/podcast/RadioLab "WNYC RadioLab" &
+
+## Record Clayton Holiday Concert
+#0 20 24 12 *   /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTFM.mp3 ClaytonHolidayConcert 120 /home/username/podcast/Misc &
+
+# Record 1A Mon - Fri from 10am - 12pm on WUOT-2
+0 10 * * 1-5     /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTHD2.mp3 1A 120 /home/username/podcast/1A "1A" &
+
+# Record 1A Mon - Fri from 10am - 12pm on WUOT-2
+#40 9 * * *     /home/username/bin/streamrecord.sh http://playerservices.streamtheworld.com/api/livestream-redirect/WUOTHD2.mp3 TestRecord 3 /home/username/podcast/TestRecord "TestRecord" &
